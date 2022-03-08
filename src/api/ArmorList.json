@@ -1,0 +1,134 @@
+[
+    {
+        "name": "Kamura Charge Blade",
+        "weaponType": "7",
+        "atk": 50,
+        "afi": 0,
+        "slot": 4
+    },
+    {
+        "name": "Kamura Charge Blade II",
+        "weaponType": 7,
+        "atk": 60,
+        "afi": 0,
+        "rarity": 1,
+        "slot": 4
+    },
+    {
+        "name": "Kamura Charge Blade III",
+        "weaponType": 0,
+        "atk": 90,
+        "afi": 0,
+        "rarity": 2,
+        "slot": 4
+    },
+    {
+        "name": "Kamura Charge Blade IV",
+        "weaponType": 0,
+        "atk": 140,
+        "afi": 0,
+        "rarity": 3,
+        "slot": 4
+    },
+    {
+        "name": "Kamura Charge Blade V",
+        "weaponType": 0,
+        "atk": 150,
+        "afi": 0,
+        "rarity": 4,
+        "slot": 4
+    },
+    {
+        "name": "Kamura Ninja Charge Blade",
+        "weaponType": 0,
+        "atk": 190,
+        "afi": 0,
+        "rarity": 5,
+        "slot": 4
+    },
+    {
+        "name": "Dear Lutemis I",
+        "elem": 1,
+        "elematk": 22,
+        "type": 7,
+        "atk": 100,
+        "afi": 0,
+        "rarity": 2,
+        "slot": 4
+    },
+    {
+        "name": "Dear Lutemis II",
+        "elem": 1,
+        "elematk": 26,
+        "type": 7,
+        "atk": 150,
+        "afi": 0,
+        "rarity": 4,
+        "slot": 4
+    },
+    {
+        "name": "Dear Lutemia",
+        "elem": 1,
+        "elematk": 30,
+        "type": 7,
+        "atk": 170,
+        "afi": 0,
+        "rarity": 5,
+        "slot": 4
+    },
+    {
+        "name": "Kamura Head Scarf",
+        "def": 1,
+        "fDef": 1,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 1,
+                "level": 1
+            }
+        ],
+        "slot": 0
+    },
+    {
+        "name": "Leather Headgear",
+        "def": 1,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 2,
+                "level": 1
+            }
+        ],
+        "slot": 0
+    },
+    {
+        "name": "Chainmail Headgear",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 1,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 3,
+                "level": 1
+            },
+            {
+                "id": 4,
+                "level": 1
+            }
+        ],
+        "slot": 0
+    }
+]

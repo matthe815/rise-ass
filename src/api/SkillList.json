@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Attack Up",
+    "max_level": 7
+  },
+  {
+    "name": "Divine Blessing",
+    "max_level": 3
+  },
+  {
+    "name": "Hunger Resistance",
+    "max_level": 3
+  },
+  {
+    "name": "Botanist",
+    "max_level": 4
+  },
+  {
+    "name": "Defense Boost",
+    "max_level": 7
+  },
+  {
+    "name": "Item Prolonger",
+    "max_level": 3
+  },
+  {
+    "name": "Critical Eye",
+    "max_level": 7
+  },
+  {
+    "name": "Fortify",
+    "max_level": 1
+  }
+]
