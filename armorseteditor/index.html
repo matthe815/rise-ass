@@ -1,0 +1,343 @@
+<html>
+  <head>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      #root {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .armor-lists {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+      }
+
+      .armor-list:nth-child(2n) {
+        background-color: #444;
+      }
+
+      .armor-list {
+        display: flex;
+        flex-direction: column;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        width: 100%;
+        flex: 0.35;
+      }
+
+      .armor-list span {
+        padding: 7px;
+        background-color: #222;
+        margin-top: 3px;
+      }
+
+      .armor-list span:hover {
+        background-color: #111;
+        cursor: pointer;
+      }
+
+      .armor-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .armor-item span {
+        background-color: #111;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" />
+  </body>
+
+  <script type="text/babel">
+    const socket = new WebSocket('ws://localhost:8081');
+    socket.onopen = () => {
+      ReactDOM.render(<ArmorLists />, document.getElementById('root'));
+    };
+
+    function ArmorLists() {
+      const [armors, setArmors] = React.useState([]);
+      const [skills, setSkills] = React.useState([]);
+
+      function handlePacket(data) {
+        setArmors(data.armors);
+        setSkills(data.skills);
+      }
+
+      socket.onmessage = (data) => handlePacket(JSON.parse(data.data));
+
+      return (
+        <div className="armor-lists">
+          <WeaponList
+            slot={4}
+            sets={armors.filter((armor) => armor.slot == 4)}
+            skills={skills}
+          />
+          <ArmorList
+            slot={0}
+            sets={armors.filter((armor) => armor.slot == 0)}
+            skills={skills}
+          />
+          <ArmorList
+            slot={1}
+            sets={armors.filter((armor) => armor.slot == 1)}
+            skills={skills}
+          />
+          <ArmorList
+            slot={5}
+            sets={armors.filter((armor) => armor.slot == 5)}
+            skills={skills}
+          />
+          <ArmorList
+            slot={2}
+            sets={armors.filter((armor) => armor.slot == 2)}
+            skills={skills}
+          />
+          <ArmorList
+            slot={3}
+            sets={armors.filter((armor) => armor.slot == 3)}
+            skills={skills}
+          />
+        </div>
+      );
+    }
+
+    function ArmorListItem({ armor, skills, onClick }) {
+      return (
+        <span className="armor-item" onClick={onClick} key={armor.name}>
+          {armor.name}
+          {(armor.skills || []).map((skill) => {
+            if (!skill || skills.length == 0) return;
+            return <span key={skill.id}>{skills[skill.id].name}</span>;
+          })}
+        </span>
+      );
+    }
+
+    function WeaponList({ slot, sets, skills }) {
+      const [selSkills, setSelSkills] = React.useState([]);
+
+      const values = {
+        name: '',
+        elem: 0,
+        elematk: 0,
+        type: 0,
+        atk: 0,
+        afi: 0,
+        rarity: 1,
+      };
+
+      function createGear() {
+        socket.send(JSON.stringify({ op: 2, slot, values }));
+      }
+
+      function deleteGear(id) {
+        socket.send(JSON.stringify({ op: 1, slot, id }));
+      }
+
+      return (
+        <div className="armor-list">
+          {sets.map((armor, index) => (
+            <ArmorListItem
+              key={index}
+              armor={armor}
+              onClick={() => deleteGear(index)}
+            />
+          ))}
+          Name:{' '}
+          <input onChange={(value) => (values.name = value.target.value)} />
+          Attack:{' '}
+          <input
+            type="number"
+            min="0"
+            onChange={(value) => (values.atk = parseInt(value.target.value))}
+          />
+          Elem Attack:{' '}
+          <input
+            type="number"
+            min="0"
+            onChange={(value) =>
+              (values.elematk = parseInt(value.target.value))
+            }
+          />
+          Affinity:{' '}
+          <input
+            type="number"
+            min="0"
+            onChange={(value) => (values.afi = parseInt(value.target.value))}
+          />
+          Rarity:{' '}
+          <input
+            type="number"
+            min="1"
+            max="9"
+            onChange={(value) => (values.rarity = parseInt(value.target.value))}
+          />
+          <select onChange={(e) => (values.type = parseInt(e.target.value))}>
+            <option value="0">Sword and Shield</option>
+            <option value="1">Great Sword</option>
+            <option value="2">Hammer</option>
+            <option value="3">Lance</option>
+            <option value="4">Gun Lance</option>
+            <option value="5">Long Sword</option>
+            <option value="6">Switch Axe</option>
+            <option value="7">Charge Axe</option>
+            <option value="8">Dual Swords</option>
+            <option value="9">Light Bowgun</option>
+            <option value="10">Heavy Bowgun</option>
+            <option value="11">Bow</option>
+          </select>
+          <select onChange={(e) => (values.elem = parseInt(e.target.value))}>
+            <option value="0">None</option>
+            <option value="1">Fire</option>
+            <option value="2">Water</option>
+            <option value="3">Thunder</option>
+            <option value="4">Ice</option>
+            <option value="5">Dragon</option>
+            <option value="6">Poison</option>
+            <option value="7">Paralysis</option>
+            <option value="8">Sleep</option>
+          </select>
+          <button onClick={createGear}>Create</button>
+        </div>
+      );
+    }
+
+    function ArmorList({ slot, sets, skills }) {
+      const [selSkills, setSelSkills] = React.useState([]);
+      const [values, setValues] = React.useState({
+        name: '',
+        def: 0,
+        fDef: 0,
+        wDef: 0,
+        iDef: 0,
+        lDef: 0,
+        dDef: 0,
+        rarity: 1,
+        skills: [],
+      });
+
+      function createGear() {
+        values.skills = values.skills.map((skill) => ({
+          id: skills.indexOf(skill),
+          level: 1,
+        }));
+        socket.send(JSON.stringify({ op: 2, slot, values }));
+      }
+
+      function deleteGear(id) {
+        socket.send(JSON.stringify({ op: 1, slot, id }));
+      }
+
+      return (
+        <div className="armor-list">
+          {sets.map((armor, index) => (
+            <ArmorListItem
+              key={index}
+              armor={armor}
+              skills={skills}
+              onClick={() => deleteGear(index)}
+            />
+          ))}
+          Name:{' '}
+          <input onChange={(value) => (values.name = value.target.value)} />
+          Defense:{' '}
+          <input
+            type="number"
+            min="0"
+            onChange={(value) => (values.def = parseInt(value.target.value))}
+          />
+          Fire Defense:{' '}
+          <input
+            type="number"
+            min="0"
+            onChange={(value) => (values.fDef = parseInt(value.target.value))}
+          />
+          Water Defense:{' '}
+          <input
+            type="number"
+            min="0"
+            onChange={(value) => (values.wDef = parseInt(value.target.value))}
+          />
+          Lightning Defense:{' '}
+          <input
+            type="number"
+            min="0"
+            onChange={(value) => (values.lDef = parseInt(value.target.value))}
+          />
+          Ice Defense:{' '}
+          <input
+            type="number"
+            min="0"
+            onChange={(value) => (values.iDef = parseInt(value.target.value))}
+          />
+          Dragon Defense:{' '}
+          <input
+            type="number"
+            min="0"
+            onChange={(value) => (values.dDef = parseInt(value.target.value))}
+          />
+          Rarity:{' '}
+          <input
+            type="number"
+            min="1"
+            max="9"
+            onChange={(value) => (values.rarity = parseInt(value.target.value))}
+          />
+          {selSkills.map((skill, index) => {
+            return (
+              <span
+                onClick={(e) => {
+                  values.skills.splice(index, 1);
+                  selSkills.splice(index, 1);
+                  setSelSkills([...selSkills]);
+                }}
+              >
+                {skill.name}
+              </span>
+            );
+          })}
+          <select
+            onChange={(e) => {
+              values.skills.push(skills[parseInt(e.target.value)]);
+              setSelSkills([...selSkills, skills[parseInt(e.target.value)]]);
+              e.target.selectedIndex = 0;
+            }}
+          >
+            <option>Select</option>
+            {skills.map((skill, index) => {
+              return (
+                <option key={skill.name} value={index}>
+                  {skill.name}
+                </option>
+              );
+            })}
+          </select>
+          <button onClick={createGear}>Create</button>
+        </div>
+      );
+    }
+  </script>
+</html>
