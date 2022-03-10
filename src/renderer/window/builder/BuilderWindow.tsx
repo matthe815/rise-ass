@@ -1,69 +1,74 @@
 import GetGearBySlot from 'api/GearLoader';
+import IArmor from 'api/interfaces/IArmor';
 import { useState } from 'react';
-import ArmorPiece from './armor-list/armor-piece/ArmorPiece';
-import ArmorList, { Armor } from './armor-list/ArmorList';
+import ArmorList from './armor-list/ArmorList';
+import ArmorListModal from './modals/ArmorListModal';
+import SetGeneratorModal from './modals/SetGeneratorModal';
 import SkillList from './stat-list/skill-list/SkillList';
 import StatDisplay from './stat-list/stat-display/StatDisplay';
 
 let slotType = 0;
 
-interface BuilderType {
-  onClose: (isClosed: boolean) => void;
-  setGear: (slotType: number, item: Armor | null) => void;
-  items: Armor[];
-}
-
-function BuilderModal({ onClose, setGear, items }: BuilderType) {
-  return (
-    <div className="layer">
-      <div className="builder-window">
-        <button role="menuitem" type="button" onClick={() => onClose(false)}>
-          Close
-        </button>
-        <ArmorPiece item={null} onMenu={() => setGear(slotType, null)} />
-        {items.map((item) => {
-          return (
-            <ArmorPiece
-              key={item.name}
-              item={item}
-              onMenu={() => setGear(slotType, item)}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 export default function Builder() {
-  const [gear, setGear] = useState<Armor[]>([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [viewableItems, setViewableItems] = useState<Armor[]>([]);
+  const [gear, setGear] = useState<IArmor[] | null[]>([]);
+  const [modalOpen, setModalOpen] = useState(-1);
+  const [viewableItems, setViewableItems] = useState<IArmor[]>([]);
 
-  function openModal(slot: number) {
+  /**
+   * Fired when the modal is set to be opened. Includes information on which one to open.
+   * @param slot Slot-type. Used for filtering the menus.
+   * @param index Modal index to open.
+   */
+  function openModal(slot: number, index = 1) {
     slotType = slot;
-    setModalOpen(true);
+    setModalOpen(index);
     setViewableItems([...GetGearBySlot(slot)]);
   }
 
-  function changeGear(slot: number, armor: Armor) {
+  /**
+   * Sets a specified gear piece within a certain slot.
+   * @param slot The slot to apply the piece to.
+   * @param armor The piece to apply to the slot.
+   */
+  function changeGear(slot: number, armor: IArmor | null) {
     gear[slot] = armor;
     setGear(gear);
-    setModalOpen(false);
+    setModalOpen(-1);
+  }
+
+  /**
+   * Applies a full set to the builder.
+   * @param set The set to apply.
+   */
+  function applySet(set: IArmor[]) {
+    setGear(set);
+    setModalOpen(-1);
   }
 
   return (
     <>
-      {modalOpen && (
-        <BuilderModal
+      {modalOpen === 2 && (
+        <SetGeneratorModal
+          onClose={setModalOpen}
+          onApply={(set) => applySet(set)}
+        />
+      )}
+
+      {modalOpen === 1 && (
+        <ArmorListModal
           onClose={setModalOpen}
           items={viewableItems}
-          setGear={() => changeGear}
+          setGear={(slot, armor) => changeGear(slot, armor)}
+          slotType={slotType}
+          isWeapon={slotType === 4}
         />
       )}
 
       <div className="builder-window">
-        <ArmorList gear={gear} onMenu={() => openModal} />
+        <ArmorList
+          gear={gear}
+          onMenu={(slot, index) => openModal(slot, index)}
+        />
         <SkillList gear={gear} />
         <StatDisplay gear={gear} />
       </div>

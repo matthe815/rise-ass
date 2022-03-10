@@ -1,7 +1,36 @@
 [
   {
-    "name": "Attack Up",
-    "max_level": 7
+    "name": "Attack Boost",
+    "max_level": 7,
+    "calculation": [
+      {
+        "maths": [
+          {
+            "stat": "atk",
+            "increment": 3,
+            "type": 0
+          }
+        ]
+      },
+      {
+        "maths": [
+          {
+            "stat": "atk",
+            "increment": 6,
+            "type": 0
+          }
+        ]
+      },
+      {
+        "maths": [
+          {
+            "stat": "atk",
+            "increment": 9,
+            "type": 0
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Divine Blessing",
@@ -17,7 +46,197 @@
   },
   {
     "name": "Defense Boost",
-    "max_level": 7
+    "max_level": 7,
+    "calculation": [
+      {
+        "maths": [
+          {
+            "stat": "def",
+            "increment": 5,
+            "type": 0
+          }
+        ]
+      },
+      {
+        "maths": [
+          {
+            "stat": "def",
+            "increment": 10,
+            "type": 0
+          }
+        ]
+      },
+      {
+        "maths": [
+          {
+            "stat": "def",
+            "increment": 10,
+            "type": 0
+          },
+          {
+            "stat": "def",
+            "increment": 5,
+            "type": 1
+          }
+        ]
+      },
+      {
+        "maths": [
+          {
+            "stat": "def",
+            "increment": 20,
+            "type": 0
+          },
+          {
+            "stat": "def",
+            "increment": 5,
+            "type": 1
+          },
+          {
+            "stat": "fDef",
+            "increment": 3,
+            "type": 0
+          },
+          {
+            "stat": "wDef",
+            "increment": 3,
+            "type": 0
+          },
+          {
+            "stat": "lDef",
+            "increment": 3,
+            "type": 0
+          },
+          {
+            "stat": "iDef",
+            "increment": 3,
+            "type": 0
+          },
+          {
+            "stat": "dDef",
+            "increment": 3,
+            "type": 0
+          }
+        ]
+      },
+      {
+        "maths": [
+          {
+            "stat": "def",
+            "increment": 20,
+            "type": 0
+          },
+          {
+            "stat": "def",
+            "increment": 8,
+            "type": 1
+          },
+          {
+            "stat": "fDef",
+            "increment": 3,
+            "type": 0
+          },
+          {
+            "stat": "wDef",
+            "increment": 3,
+            "type": 0
+          },
+          {
+            "stat": "lDef",
+            "increment": 3,
+            "type": 0
+          },
+          {
+            "stat": "iDef",
+            "increment": 3,
+            "type": 0
+          },
+          {
+            "stat": "dDef",
+            "increment": 3,
+            "type": 0
+          }
+        ]
+      },
+      {
+        "maths": [
+          {
+            "stat": "def",
+            "increment": 35,
+            "type": 0
+          },
+          {
+            "stat": "def",
+            "increment": 8,
+            "type": 1
+          },
+          {
+            "stat": "fDef",
+            "increment": 5,
+            "type": 0
+          },
+          {
+            "stat": "wDef",
+            "increment": 5,
+            "type": 0
+          },
+          {
+            "stat": "lDef",
+            "increment": 5,
+            "type": 0
+          },
+          {
+            "stat": "iDef",
+            "increment": 5,
+            "type": 0
+          },
+          {
+            "stat": "dDef",
+            "increment": 5,
+            "type": 0
+          }
+        ]
+      },
+      {
+        "maths": [
+          {
+            "stat": "def",
+            "increment": 35,
+            "type": 0
+          },
+          {
+            "stat": "def",
+            "increment": 10,
+            "type": 1
+          },
+          {
+            "stat": "fDef",
+            "increment": 5,
+            "type": 0
+          },
+          {
+            "stat": "wDef",
+            "increment": 5,
+            "type": 0
+          },
+          {
+            "stat": "lDef",
+            "increment": 5,
+            "type": 0
+          },
+          {
+            "stat": "iDef",
+            "increment": 5,
+            "type": 0
+          },
+          {
+            "stat": "dDef",
+            "increment": 5,
+            "type": 0
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Item Prolonger",
@@ -30,5 +249,125 @@
   {
     "name": "Fortify",
     "max_level": 1
+  },
+  {
+    "name": "Wirebug Whisperer",
+    "max_level": 3
+  },
+  {
+    "name": "Peak Performance",
+    "max_level": 3
+  },
+  {
+    "name": "Attack Boost",
+    "max_level": 7
+  },
+  {
+    "name": "Recovery Speed",
+    "max_level": 3
+  },
+  {
+    "name": "Counterstrike",
+    "max_level": 3
+  },
+  {
+    "name": "Heroics",
+    "max_level": 5
+  },
+  {
+    "name": "Geologist",
+    "max_level": 3
+  },
+  {
+    "name": "Quick Sheath",
+    "max_level": 3
+  },
+  {
+    "name": "Constitution",
+    "max_level": 5
+  },
+  {
+    "name": "Recovery Up",
+    "max_level": 1
+  },
+  {
+    "name": "Guard",
+    "max_level": 5
+  },
+  {
+    "name": "Stun Resistance",
+    "max_level": 3
+  },
+  {
+    "name": "Wall Runner",
+    "max_level": 3
+  },
+  {
+    "name": "Stamina Surge",
+    "max_level": 3
+  },
+  {
+    "name": "Diversion",
+    "max_level": 1
+  },
+  {
+    "name": "Recoil Down",
+    "max_level": 3
+  },
+  {
+    "name": "Fire Attack",
+    "max_level": 3
+  },
+  {
+    "name": "Water Attack",
+    "max_level": 3
+  },
+  {
+    "name": "Thunder Attack",
+    "max_level": 3
+  },
+  {
+    "name": "Ice Attack",
+    "max_level": 3
+  },
+  {
+    "name": "Dragon Attack",
+    "max_level": 3
+  },
+  {
+    "name": "Partbreaker",
+    "max_level": 3
+  },
+  {
+    "name": "Mushroomancer",
+    "max_level": 3
+  },
+  {
+    "name": "Free Meal",
+    "max_level": 1
+  },
+  {
+    "name": "Maximum Might",
+    "max_level": 3
+  },
+  {
+    "name": "Evade Extender",
+    "max_level": 3
+  },
+  {
+    "name": "Speed Eating",
+    "max_level": 3
+  },
+  {
+    "name": "Leap of Faith",
+    "max_level": 1
+  },
+  {
+    "name": "Bludgeoner",
+    "max_level": 3
+  },
+  {
+    "name": "Windproof",
+    "max_level": 3
   }
 ]

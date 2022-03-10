@@ -1,5 +1,7 @@
 /* eslint-disable import/no-cycle */
+import IArmor from 'api/interfaces/IArmor';
 import ArmorPiece from './armor-piece/ArmorPiece';
+import './ArmorList.scss';
 
 export interface Armor {
   name: string;
@@ -9,8 +11,8 @@ export interface Armor {
 }
 
 interface GearList {
-  gear: Armor[];
-  onMenu: (slot: number) => void;
+  gear: IArmor[] | null[];
+  onMenu: (slot: number, index?: number) => void;
 }
 
 export default function ArmorList({ gear, onMenu }: GearList) {
@@ -22,6 +24,10 @@ export default function ArmorList({ gear, onMenu }: GearList) {
       <ArmorPiece item={gear[5]} onMenu={() => onMenu(5)} />
       <ArmorPiece item={gear[2]} onMenu={() => onMenu(2)} />
       <ArmorPiece item={gear[3]} onMenu={() => onMenu(3)} />
+
+      <button type="button" onClick={() => onMenu(-1, 2)}>
+        Generate
+      </button>
     </div>
   );
 }

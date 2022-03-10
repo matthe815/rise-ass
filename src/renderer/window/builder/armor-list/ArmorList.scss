@@ -1,0 +1,55 @@
+.armor-piece {
+  background-color: #363636fa;
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.armor-piece:hover {
+  background-color: #232323;
+}
+
+.armor-content {
+  margin-left: 4px;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .armor-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  span img {
+    vertical-align: sub;
+  }
+}
+
+.armor-list button {
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px;
+}
+
+.armor-icon {
+  width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+  background-color: #222;
+}
+
+.armor-skills {
+  display: flex;
+  flex-direction: row;
+
+  span {
+    background-color: #222;
+    padding: 4px;
+    margin-left: 4px;
+    color: #FFFFFF85;
+  }
+}

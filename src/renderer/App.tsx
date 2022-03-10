@@ -1,6 +1,7 @@
 /* eslint-disable import/no-named-as-default-member */
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+import './App.scss';
+import './window/Window.scss';
 import Builder from './window/builder/BuilderWindow';
 import Toolbar from './window/header/Toolbar';
 

@@ -1,14 +1,14 @@
 [
     {
         "name": "Kamura Charge Blade",
-        "weaponType": "7",
+        "type": 7,
         "atk": 50,
         "afi": 0,
         "slot": 4
     },
     {
         "name": "Kamura Charge Blade II",
-        "weaponType": 7,
+        "type": 7,
         "atk": 60,
         "afi": 0,
         "rarity": 1,
@@ -16,15 +16,14 @@
     },
     {
         "name": "Kamura Charge Blade III",
-        "weaponType": 0,
+        "type": 7,
         "atk": 90,
         "afi": 0,
         "rarity": 2,
         "slot": 4
     },
     {
-        "name": "Kamura Charge Blade IV",
-        "weaponType": 0,
+        "type": 7,
         "atk": 140,
         "afi": 0,
         "rarity": 3,
@@ -32,7 +31,7 @@
     },
     {
         "name": "Kamura Charge Blade V",
-        "weaponType": 0,
+        "type": 7,
         "atk": 150,
         "afi": 0,
         "rarity": 4,
@@ -40,7 +39,7 @@
     },
     {
         "name": "Kamura Ninja Charge Blade",
-        "weaponType": 0,
+        "type": 7,
         "atk": 190,
         "afi": 0,
         "rarity": 5,
@@ -130,5 +129,476 @@
             }
         ],
         "slot": 0
+    },
+    {
+        "name": "Hunter's Helm",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 5,
+                "level": 1
+            }
+        ],
+        "slot": 0
+    },
+    {
+        "name": "Izuchi Helm",
+        "def": 10,
+        "fDef": 2,
+        "wDef": -1,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 6,
+                "level": 1
+            }
+        ],
+        "slot": 0
+    },
+    {
+        "name": "Arzuros Helm",
+        "def": 10,
+        "fDef": -2,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 7,
+                "level": 1
+            }
+        ],
+        "slot": 0
+    },
+    {
+        "name": "Kamura Garb",
+        "def": 1,
+        "fDef": 1,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 8,
+                "level": 1
+            }
+        ],
+        "slot": 1
+    },
+    {
+        "name": "Leather Vest",
+        "def": 1,
+        "fDef": 1,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 3,
+                "level": 1
+            }
+        ],
+        "slot": 1
+    },
+    {
+        "name": "Chainmail Vest",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 1,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 9,
+                "level": 1
+            },
+            {
+                "id": 4,
+                "level": 1
+            }
+        ],
+        "slot": 1
+    },
+    {
+        "name": "Hunter's Mail",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 0,
+                "level": 1
+            }
+        ],
+        "slot": 1
+    },
+    {
+        "name": "Izuchi Mail",
+        "def": 10,
+        "fDef": 2,
+        "wDef": -1,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 6,
+                "level": 1
+            },
+            {
+                "id": 11,
+                "level": 1
+            }
+        ],
+        "slot": 1
+    },
+    {
+        "name": "Arzuros Mail",
+        "def": 10,
+        "fDef": -2,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 12,
+                "level": 1
+            }
+        ],
+        "slot": 1
+    },
+    {
+        "name": "Kamura Braces",
+        "def": 1,
+        "fDef": 1,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 13,
+                "level": 1
+            }
+        ],
+        "slot": 5
+    },
+    {
+        "name": "Leather Gloves",
+        "def": 1,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 14,
+                "level": 1
+            }
+        ],
+        "slot": 5
+    },
+    {
+        "name": "Chainmail Gloves",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 1,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 3,
+                "level": 1
+            }
+        ],
+        "slot": 5
+    },
+    {
+        "name": "Hunter's Vambraces",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 15,
+                "level": 1
+            }
+        ],
+        "slot": 5
+    },
+    {
+        "name": "Izuchi Braces",
+        "def": 10,
+        "fDef": 2,
+        "wDef": -1,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 16,
+                "level": 1
+            }
+        ],
+        "slot": 5
+    },
+    {
+        "name": "Arzuros Vambraces",
+        "def": 10,
+        "fDef": -2,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 4,
+                "level": 1
+            }
+        ],
+        "slot": 5
+    },
+    {
+        "name": "Kamura Obi",
+        "def": 1,
+        "fDef": 1,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 6,
+                "level": 1
+            }
+        ],
+        "slot": 2
+    },
+    {
+        "name": "Leather Belt",
+        "def": 1,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 17,
+                "level": 1
+            }
+        ],
+        "slot": 2
+    },
+    {
+        "name": "Chainmail Belt",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 1,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 18,
+                "level": 1
+            }
+        ],
+        "slot": 2
+    },
+    {
+        "name": "Hunter's Coil",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 19,
+                "level": 1
+            }
+        ],
+        "slot": 2
+    },
+    {
+        "name": "Izuchi Coil",
+        "def": 10,
+        "fDef": 2,
+        "wDef": -1,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 6,
+                "level": 1
+            }
+        ],
+        "slot": 2
+    },
+    {
+        "name": "Arzuros Coil",
+        "def": 10,
+        "fDef": -2,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 4,
+                "level": 1
+            }
+        ],
+        "slot": 2
+    },
+    {
+        "name": "Kamura Leggings",
+        "def": 1,
+        "fDef": 1,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 20,
+                "level": 1
+            }
+        ],
+        "slot": 3
+    },
+    {
+        "name": "Leather Pants",
+        "def": 1,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 14,
+                "level": 1
+            }
+        ],
+        "slot": 3
+    },
+    {
+        "name": "Chainmail Pants",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 1,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 21,
+                "level": 1
+            }
+        ],
+        "slot": 3
+    },
+    {
+        "name": "Hunter's Greaves",
+        "def": 4,
+        "fDef": 0,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": 0,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 19,
+                "level": 1
+            },
+            {
+                "id": 0,
+                "level": 1
+            }
+        ],
+        "slot": 3
+    },
+    {
+        "name": "Izuchi Greaves",
+        "def": 10,
+        "fDef": 2,
+        "wDef": -1,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 11,
+                "level": 1
+            }
+        ],
+        "slot": 3
+    },
+    {
+        "name": "Arzuros Greaves",
+        "def": 10,
+        "fDef": -2,
+        "wDef": 0,
+        "iDef": 0,
+        "lDef": -2,
+        "dDef": 0,
+        "rarity": 1,
+        "skills": [
+            {
+                "id": 22,
+                "level": 1
+            }
+        ],
+        "slot": 3
     }
 ]

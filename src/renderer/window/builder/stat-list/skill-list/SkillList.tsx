@@ -1,18 +1,29 @@
-import { Armor } from '../../armor-list/ArmorList';
+import IArmor from 'api/interfaces/IArmor';
+import ISkill from 'api/interfaces/ISkill';
 import Skill from './Skill';
 
-interface GearType {
-  gear: Armor[];
+interface ISkillListParameters {
+  gear: IArmor[] | null[];
 }
 
-export default function SkillList({ gear }: GearType) {
-  const skills = [];
+export default function SkillList({ gear }: ISkillListParameters) {
+  const skills: ISkill[] = [];
 
   gear.forEach((item) => {
-    if (item.skills == null) return [];
+    if (item == null || item.skills == null) return [];
 
+    // Run through each skill.
     item.skills.forEach((skill) => {
-      return skills.push(skill);
+      // If the skill is already registered, just increment the level.
+      if (skills.includes(skill)) {
+        // Increment the skill
+        const active = skills[skills.indexOf(skill)];
+        if (!active.level) active.level = 0;
+        active.level += 1;
+        return false;
+      }
+
+      return skills.push(Object.assign(skill, { level: 1 }));
     });
 
     return true;
@@ -21,7 +32,7 @@ export default function SkillList({ gear }: GearType) {
   return (
     <div className="skill-list">
       {skills.map((skill) => (
-        <Skill name={skill.name} level={1} />
+        <Skill name={skill.name} level={skill.level || 1} />
       ))}
     </div>
   );
