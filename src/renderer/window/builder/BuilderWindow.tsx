@@ -41,7 +41,6 @@ export default function Builder() {
    * @param set The set to apply.
    */
   function applySet(set: IArmor[]) {
-    console.log(set);
     setGear([set[0], set[1], set[3], set[4], null, set[2]]);
     setModalOpen(-1);
   }
