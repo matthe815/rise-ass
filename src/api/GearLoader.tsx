@@ -25,6 +25,39 @@ export default function GetGearBySlot(slot: number): IArmor[] {
   return json.filter((item) => item.slot === slot);
 }
 
+function MakeGearColumns() {
+  const gearSlots: IArmor[][] = [
+    GetGearBySlot(0),
+    GetGearBySlot(1),
+    GetGearBySlot(5),
+    GetGearBySlot(2),
+    GetGearBySlot(3),
+  ];
+
+  return gearSlots;
+}
+
+function MakeCombos(): IArmor[][] {
+  const columns = MakeGearColumns();
+  const combos: IArmor[][] = [];
+
+  for (const head of columns[0]) {
+    for (const body of columns[1]) {
+      for (const arms of columns[2]) {
+        for (const waist of columns[3]) {
+          for (const legs of columns[4]) {
+            combos.push([head, body, arms, waist, legs]);
+          }
+        }
+      }
+    }
+  }
+
+  return combos;
+}
+
+const gearCombos = MakeCombos();
+
 /**
  * Determine the active skills from within a specified armor set.
  * @param Set Armor sets including null handles.
@@ -122,16 +155,17 @@ function BruteForceSet(
  * @param skills The skills to look for.
  * @returns All pieces.
  */
-function GetAllWithSkill(skills: ISkill[]): IArmor[] {
-  return (json as IArmor[]).filter((armor: IArmor) => {
-    // If the armor has no skills (such as being a weapon) then it's safe to stop here.
-    if (!armor.skills) return false;
+// TODO; Turn into callback based async system.
+function GetAllWithSkill(skills: ISkill[]): IArmor[][] {
+  return gearCombos.filter((set: IArmor[]) => {
+    const setSkills = DetermineSkillsForSet(set);
 
     for (const skill of skills) {
-      if (armor.skills.find((skil) => skil.name === skill.name)) return true;
+      const setSkill = setSkills.find((skil) => skil.name === skill.name);
+      if (!setSkill || (setSkill.level || 0) < (skill.level || 0)) return false;
     }
 
-    return false;
+    return true;
   });
 }
 
@@ -140,18 +174,19 @@ function GetAllWithSkill(skills: ISkill[]): IArmor[] {
  * @param skills The skills to look for.
  * @param next The callback to work from.
  */
+/// TODO; Replace with just GetAllWithSkill
 export function TryCombineSets(
   skills: ISkill[],
   next: (result: BruteForceResults, remaining: number) => void
 ): void {
-  const armorSkillList = GetAllWithSkill(skills);
-  const options = [...armorSkillList];
+  const armorSkillList = GetAllWithSkill(skills).splice(0, 20);
 
   // Loop through all of the combinations to find a set and return the call backs.
-  armorSkillList.forEach((_, index) => {
-    const result = BruteForceSet(options, skills);
-    options.splice(0, 1);
+  armorSkillList.forEach((result, index) => {
     if (result === undefined) return;
-    next(result, options.length - 1);
+    next(
+      { set: result, skills: DetermineSkillsForSet(result) },
+      armorSkillList.length - 1 - index
+    );
   });
 }
