@@ -45,10 +45,34 @@ hr {
 
 .skill {
   padding: 8px;
-  background-color: #333;
+  padding-left: 0;
+  border-bottom: #00000085 dashed 1px;
   margin-top: 4px;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
 
-  span span {
+  .level-tic {
+    background-color: #333;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    transform: skew(-20deg);
+
+    .level-tic-color {
+      background-color: cyan;
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+  }
+
+  span {
     user-select: none;
   }
 }

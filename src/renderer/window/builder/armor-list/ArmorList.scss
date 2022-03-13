@@ -7,6 +7,10 @@
   cursor: pointer;
 }
 
+.generator-armor .armor-piece, .generator-skill .skill {
+  flex: 1;
+}
+
 .armor-piece:hover {
   background-color: #232323;
 }
@@ -29,6 +33,10 @@
   }
 }
 
+.generator-armor, .generator-skill {
+  display: inline-flex;
+}
+
 .armor-list button {
   width: 100%;
   margin-top: 4px;
@@ -46,7 +54,11 @@
   display: flex;
   flex-direction: row;
 
-  span {
+  img {
+    vertical-align: middle;
+  }
+
+  div {
     background-color: #222;
     padding: 4px;
     margin-left: 4px;

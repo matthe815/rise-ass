@@ -11,6 +11,7 @@ export interface ISkillLevelSet {
 export default interface ISkill {
   name: string;
   max_level: number;
+  icon?: number;
   level?: number;
   calculation?: ISkillLevelSet[];
 }

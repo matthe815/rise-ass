@@ -67,6 +67,7 @@ export default function SetGeneratorModal({
           clickable
           name={skill.name}
           level={skill?.level || 0}
+          maxLevel={skill?.max_level || 0}
           onClick={() => removeSkill(index)}
         />
       ))}
@@ -121,14 +122,27 @@ interface IArmorSetParamaters {
 SetGeneratorModal.ArmorSet = ({ result, onApply }: IArmorSetParamaters) => {
   return (
     <>
-      {result.set.map((item: IArmor | null) => {
-        if (item === null) return null;
-        return <ArmorPiece item={item} onMenu={() => {}} key={item.name} />;
-      })}
+      <div className="generator-armor">
+        {result.set.map((item: IArmor | null) => {
+          if (item === null) return null;
+          return (
+            <ArmorPiece inline item={item} onMenu={() => {}} key={item.name} />
+          );
+        })}
+      </div>
 
-      {result.skills.map((skill: ISkill) => {
-        return <Skill name={skill.name} level={skill.level || 0} />;
-      })}
+      <div className="generator-skill">
+        {result.skills.map((skill: ISkill) => {
+          return (
+            <Skill
+              name={skill.name}
+              maxLevel={skill.max_level || 0}
+              level={skill.level || 0}
+            />
+          );
+        })}
+      </div>
+
       <button type="button" onClick={() => onApply(result.set)}>
         Use This Set
       </button>

@@ -32,7 +32,12 @@ export default function SkillList({ gear }: ISkillListParameters) {
   return (
     <div className="skill-list">
       {skills.map((skill) => (
-        <Skill name={skill.name} level={skill.level || 1} />
+        <Skill
+          name={skill.name}
+          icon={skill.icon || 0}
+          maxLevel={skill.max_level || 1}
+          level={skill.level || 1}
+        />
       ))}
     </div>
   );

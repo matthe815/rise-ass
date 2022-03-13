@@ -2,6 +2,7 @@
   {
     "name": "Attack Boost",
     "max_level": 7,
+    "icon": 4,
     "calculation": [
       {
         "maths": [
@@ -42,11 +43,13 @@
   },
   {
     "name": "Botanist",
-    "max_level": 4
+    "max_level": 4,
+    "icon": 3
   },
   {
     "name": "Defense Boost",
     "max_level": 7,
+    "icon": 1,
     "calculation": [
       {
         "maths": [
@@ -244,7 +247,8 @@
   },
   {
     "name": "Critical Eye",
-    "max_level": 7
+    "max_level": 7,
+    "icon": 2
   },
   {
     "name": "Fortify",
@@ -252,15 +256,12 @@
   },
   {
     "name": "Wirebug Whisperer",
-    "max_level": 3
+    "max_level": 3,
+    "icon": 5
   },
   {
     "name": "Peak Performance",
     "max_level": 3
-  },
-  {
-    "name": "Attack Boost",
-    "max_level": 7
   },
   {
     "name": "Recovery Speed",
@@ -276,15 +277,18 @@
   },
   {
     "name": "Geologist",
-    "max_level": 3
+    "max_level": 3,
+    "icon": 6
   },
   {
     "name": "Quick Sheath",
-    "max_level": 3
+    "max_level": 3,
+    "icon": 1
   },
   {
     "name": "Constitution",
-    "max_level": 5
+    "max_level": 5,
+    "icon": 1
   },
   {
     "name": "Recovery Up",
@@ -300,11 +304,13 @@
   },
   {
     "name": "Wall Runner",
-    "max_level": 3
+    "max_level": 3,
+    "icon": 3
   },
   {
     "name": "Stamina Surge",
-    "max_level": 3
+    "max_level": 3,
+    "icon": 1
   },
   {
     "name": "Diversion",
